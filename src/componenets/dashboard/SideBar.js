@@ -1,4 +1,6 @@
+import { useSelector } from "react-redux";
 function SideBar() {
+  const todos = useSelector((state) => state.todos);
   return (
     <aside>
       <div>
@@ -10,11 +12,11 @@ function SideBar() {
         </select>
       </div>
       <ol>
-        <li>Hang out washing</li>
-        <li>do this code assessment</li>
-        <li>make a grilled cheese sandwich</li>
-        <li>ugh, take the washing back in</li>
-        <li>yell at someone online</li>
+        {todos.map((todo) => (
+          <li>
+            {todo.description} <span>{todo.completed}</span>
+          </li>
+        ))}
       </ol>
     </aside>
   );

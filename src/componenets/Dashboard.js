@@ -1,15 +1,15 @@
+import React from "react";
 import Nav from "./dashboard/Nav";
 import SideBar from "./dashboard/SideBar";
-import Main from "./dashboard/Main";
-import "../index.css";
+import AddTodo from "./dashboard/AddTodo";
 
 function Dashboard() {
   return (
     <>
       <Nav />
       <main>
+        <AddTodo />
         <SideBar />
-        <Main />
       </main>
     </>
   );
