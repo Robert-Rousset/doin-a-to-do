@@ -14,9 +14,8 @@ function SideBar() {
 
       <ol>
         {todos.map((todo) => (
-          <li>
+          <li className={todo.completed ? "complete" : ""}>
             {todo.description}{" "}
-            <span>{todo.completed ? <span>TICK</span> : ""}</span>
           </li>
         ))}
       </ol>

@@ -20,9 +20,14 @@ function Nav() {
           <div className="modal">
             <h1>Settings</h1>
             <h2>name</h2>
+            <input />
             <p>{store.getState().user.name}</p>
-
             <h2>theme</h2>
+            <div className="button-container">
+              <button className="theme-button-default">Default</button>{" "}
+              <button className="theme-button-dark">Dark</button>
+            </div>
+            <button className="modal-button">Confirm</button>
           </div>
         </div>
       ) : (
@@ -30,7 +35,8 @@ function Nav() {
       )}
       <nav>
         <button onClick={renderModal}>Settings</button>
-        <h4>Not Another Todo List</h4>
+        <span className="full-title">Not Another Todo List</span>
+        <span className="short-title">Todo List</span>
         <button onClick={logout}>logout</button>
       </nav>
     </>
