@@ -3,14 +3,15 @@ function SideBar() {
   const todos = useSelector((state) => state.user.todos);
   return (
     <aside>
-      <div>
-        <label htmlFor="select-status">TODOS</label>
-        <select name="select-status" id="status">
-          <option value="both">All Todos</option>
-          <option value="completed">Completed</option>
-          <option value="todo">TODO :'(</option>
-        </select>
-      </div>
+      <label htmlFor="select-status" className="aside-label">
+        TODOS
+      </label>
+      <select name="select-status" id="status">
+        <option value="both">All Todos</option>
+        <option value="completed">Completed</option>
+        <option value="todo">TODO :'(</option>
+      </select>
+
       <ol>
         {todos.map((todo) => (
           <li>

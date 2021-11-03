@@ -6,19 +6,21 @@ import SignIn from "./componenets/SignIn";
 function App() {
   const signedIn = localStorage.getItem("SignedIn");
   return (
-    <Router>
-      {signedIn ? (
-        <>
-          <Redirect to="/dashboard" />
-          <Route exact path="/dashboard" component={Dashboard} />
-        </>
-      ) : (
-        <>
-          <Redirect to="/signin" />{" "}
-          <Route exact path="/signin" component={SignIn} />
-        </>
-      )}
-    </Router>
+    <div className="background">
+      <Router>
+        {signedIn ? (
+          <>
+            <Redirect to="/dashboard" />
+            <Route exact path="/dashboard" component={Dashboard} />
+          </>
+        ) : (
+          <>
+            <Redirect to="/signin" />{" "}
+            <Route exact path="/signin" component={SignIn} />
+          </>
+        )}
+      </Router>
+    </div>
   );
 }
 

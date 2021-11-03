@@ -15,15 +15,18 @@ function AddTodo() {
 
   return (
     <section>
+      <label>ADD TODO</label>
       <form onSubmit={onSubmit}>
-        <label>Add todo</label>
         <div className="input-wrapper">
-          <input
-            placeholder="type todo here..."
-            type="text"
-            value={todo}
-            onChange={(event) => setTodo(event.target.value)}
-          />
+          <div className="input-background">
+            <input
+              className="todoInput"
+              placeholder="type todo here..."
+              type="text"
+              value={todo}
+              onChange={(event) => setTodo(event.target.value)}
+            />
+          </div>
           <button type="submit">+</button>
         </div>
       </form>

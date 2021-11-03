@@ -7,7 +7,7 @@ function Dashboard() {
   return (
     <>
       <Nav />
-      <main>
+      <main className="container">
         <AddTodo />
         <SideBar />
       </main>
