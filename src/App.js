@@ -1,11 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Dashboard from "./componenets/Dashboard";
-import Signin from "./componenets/Signin";
+import SignIn from "./componenets/SignIn";
 
 function App() {
-  let signedIn = true;
-
+  const signedIn = localStorage.getItem("SignedIn");
   return (
     <Router>
       {signedIn ? (
@@ -16,7 +15,7 @@ function App() {
       ) : (
         <>
           <Redirect to="/signin" />{" "}
-          <Route exact path="/signin" component={Signin} />
+          <Route exact path="/signin" component={SignIn} />
         </>
       )}
     </Router>
