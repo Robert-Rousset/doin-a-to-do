@@ -1,6 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# The To Do
+# The Todo
 
 A simple to do list app that lets users write down their tasks and mark them as complete!
 
