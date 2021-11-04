@@ -11,7 +11,7 @@ function Nav() {
   function logout() {
     localStorage.removeItem("signedIn");
     localStorage.removeItem("username");
-    window.location.pathname = "/doin-a-to-do/signin";
+    window.location.pathname = "/signin";
   }
 
   function changeTheme(event) {
