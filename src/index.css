@@ -17,15 +17,18 @@ body {
   font-family: "Lobster", cursive;
   font-size: 50px;
   margin-top: -10px;
+  color: rgb(0, 22, 48);
 }
 .short-title {
   display: none;
   font-family: "Lobster", cursive;
   font-size: 50px;
   margin-top: -10px;
+  color: rgb(0, 22, 48);
 }
 h1 {
   font-family: "Lobster", cursive;
+  color: rgb(0, 22, 48);
 }
 h2 {
   font-family: "Roboto", sans-serif;
@@ -93,13 +96,13 @@ main {
 main > section {
   flex: 1 0 auto;
   height: 20vh;
-  padding: 90px 40px 0px 40px;
+  padding: 80px 40px 0px 40px;
   margin: 0px 20px 0px 20px;
   border-bottom-right-radius: 50px;
   border-bottom-left-radius: 50px;
   box-shadow: 0px 20px 30px rgba(146, 146, 146, 0.2);
   width: 50%;
-  backdrop-filter: blur(50px);
+  backdrop-filter: blur(30px);
 }
 
 label {
@@ -177,7 +180,8 @@ main > aside {
   border-bottom-right-radius: 50px;
   border-bottom-left-radius: 50px;
   box-shadow: 0px 20px 30px rgba(146, 146, 146, 0.2);
-  backdrop-filter: blur(50px);
+  backdrop-filter: blur(30px);
+  min-height: 500px;
 }
 .aside-label {
   display: block;
@@ -188,8 +192,8 @@ aside > ol {
   padding: 1rem 1rem 1rem 2rem;
 }
 #status {
-  height: 30px;
   margin-top: 10px;
+  height: 30px;
   border-radius: 0px;
   width: 100%;
   border: none;
@@ -199,7 +203,7 @@ aside > ol {
   justify-content: center;
   font-family: "Roboto", sans-serif;
   font-size: 20px;
-  background-color: rgba(75, 167, 48, 0.5);
+  background-color: rgb(236, 169, 191);
 }
 
 .complete {
@@ -370,7 +374,6 @@ option {
   .container {
     margin-left: 0px;
     margin-right: 0px;
-
     flex-wrap: wrap;
   }
   main > aside {
@@ -380,6 +383,7 @@ option {
   }
   main > section {
     margin: 20px 20px 20px 20px;
+    padding: 40px 40px 0px 40px;
     border-radius: 20px;
   }
 }
@@ -397,5 +401,6 @@ option {
   .short-title {
     font-size: 30px;
     margin-top: 0px;
+    text-align: center;
   }
 }
