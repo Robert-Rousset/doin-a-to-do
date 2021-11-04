@@ -3,31 +3,64 @@ import { useState } from "react";
 import store from "../../redux/store";
 
 function Nav() {
+  const theme = localStorage.getItem("theme");
   const [showModal, setShowModal] = useState();
-  function renderModal(event) {
-    event.stopPropagation();
+  function renderModal() {
     setShowModal(!showModal);
   }
 
   function logout() {
     localStorage.removeItem("signedIn");
+    localStorage.removeItem("username");
     window.location.reload();
   }
+
+  function changeTheme(event) {
+    const themeName = event.target.innerHTML;
+    console.log(themeName);
+    if (themeName === "Default") {
+      localStorage.setItem("theme", "default");
+    }
+    if (themeName === "Dark") {
+      localStorage.setItem("theme", "dark");
+    }
+  }
+
+  function addTheme(event) {}
+
+  function stopPropagate(event) {
+    event.stopPropagation();
+  }
+
   return (
     <>
       {showModal ? (
         <div className="modal-background" onClick={renderModal}>
-          <div className="modal">
+          <div className="modal" onClick={stopPropagate}>
             <h1>Settings</h1>
-            <h2>name</h2>
-            <input />
+            <h2>Username</h2>
+            <input placeholder={localStorage.getItem("username")} />
             <p>{store.getState().user.name}</p>
-            <h2>theme</h2>
+            <h2>Theme</h2>
             <div className="button-container">
-              <button className="theme-button-default">Default</button>{" "}
-              <button className="theme-button-dark">Dark</button>
+              <button
+                className={
+                  theme === "default" ? "active" : "theme-button-default"
+                }
+                onClick={changeTheme}
+              >
+                Default
+              </button>{" "}
+              <button
+                className={theme === "dark" ? "active" : "theme-button-dark"}
+                onClick={changeTheme}
+              >
+                Dark
+              </button>
             </div>
-            <button className="modal-button">Confirm</button>
+            <button className="modal-button" onClick={renderModal}>
+              Confirm
+            </button>
           </div>
         </div>
       ) : (

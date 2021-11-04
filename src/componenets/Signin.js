@@ -19,6 +19,7 @@ function SignIn() {
       dispatch(signIn({ name: username, signedIn: true }));
       localStorage.setItem("signedIn", true);
       localStorage.setItem("username", username);
+      localStorage.setItem("theme", "default");
       window.location.pathname = "/dashboard";
     }
   }
