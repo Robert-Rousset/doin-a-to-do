@@ -59,8 +59,8 @@ function Nav() {
       {showModal ? (
         <div className="modal-background" onClick={renderModal}>
           <form onSubmit={onSubmit}>
-            <div className="modal" onClick={stopPropagate}>
-              <h1>Settings</h1>
+            <div className="modal" id={currentTheme} onClick={stopPropagate}>
+              <h1 id={currentTheme}>Settings</h1>
               <h2>Username</h2>
               <input
                 placeholder={localStorage.getItem("username")}

@@ -12,6 +12,7 @@ function AddTodo() {
   const onSubmit = (event) => {
     event.preventDefault();
 
+    setTodo("");
     dispatch(addTodo({ description: todo }));
   };
 
