@@ -1,4 +1,3 @@
-// import Settings from "./Settings";
 import { useState } from "react";
 import store from "../../redux/store";
 
@@ -12,7 +11,7 @@ function Nav() {
   function logout() {
     localStorage.removeItem("signedIn");
     localStorage.removeItem("username");
-    window.location.reload();
+    window.location.pathname = "/doin-a-to-do/signin";
   }
 
   function changeTheme(event) {

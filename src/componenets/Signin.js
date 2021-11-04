@@ -20,7 +20,7 @@ function SignIn() {
       localStorage.setItem("signedIn", true);
       localStorage.setItem("username", username);
       localStorage.setItem("theme", "default");
-      window.location.pathname = "/dashboard";
+      window.location.pathname = "doin-a-to-do/dashboard";
     }
   }
 
