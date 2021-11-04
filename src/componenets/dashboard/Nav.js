@@ -26,8 +26,6 @@ function Nav() {
     }
   }
 
-  function addTheme(event) {}
-
   function stopPropagate(event) {
     event.stopPropagation();
   }
@@ -40,7 +38,7 @@ function Nav() {
             <h1>Settings</h1>
             <h2>Username</h2>
             <input placeholder={localStorage.getItem("username")} />
-            <p>{store.getState().user.name}</p>
+
             <h2>Theme</h2>
             <div className="button-container">
               <button
@@ -50,7 +48,7 @@ function Nav() {
                 onClick={changeTheme}
               >
                 Default
-              </button>{" "}
+              </button>
               <button
                 className={theme === "dark" ? "active" : "theme-button-dark"}
                 onClick={changeTheme}
