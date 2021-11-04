@@ -1,9 +1,16 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { changeName, changeTheme } from "../../redux/todoSlice";
 import store from "../../redux/store";
 
 function Nav() {
   const theme = localStorage.getItem("theme");
+
+  const [username, setUsername] = useState();
   const [showModal, setShowModal] = useState();
+
+  const dispatch = useDispatch();
+
   function renderModal() {
     setShowModal(!showModal);
   }
@@ -14,15 +21,27 @@ function Nav() {
     window.location.pathname = "/doin-a-to-do";
   }
 
-  function changeTheme(event) {
-    const themeName = event.target.innerHTML;
-    console.log(themeName);
+  function changeTheTheme(event) {
+    event.preventDefault();
+    const themeName = event.target.textContent;
     if (themeName === "Default") {
       localStorage.setItem("theme", "default");
+      dispatch(changeTheme({ theme: "default" }));
+      document.getElementById("2").className = "theme-button-dark";
     }
     if (themeName === "Dark") {
       localStorage.setItem("theme", "dark");
+      dispatch(changeTheme({ theme: "dark" }));
+      document.getElementById("1").className = "theme-button-default";
     }
+  }
+
+  function resetButtons(themeName) {}
+
+  function changeUsername() {
+    localStorage.setItem("username", username);
+    dispatch(changeName({ name: username }));
+    renderModal();
   }
 
   function stopPropagate(event) {
@@ -33,32 +52,39 @@ function Nav() {
     <>
       {showModal ? (
         <div className="modal-background" onClick={renderModal}>
-          <div className="modal" onClick={stopPropagate}>
-            <h1>Settings</h1>
-            <h2>Username</h2>
-            <input placeholder={localStorage.getItem("username")} />
+          <form onSubmit={changeUsername}>
+            <div className="modal" onClick={stopPropagate}>
+              <h1>Settings</h1>
+              <h2>Username</h2>
+              <input
+                placeholder={localStorage.getItem("username")}
+                onChange={(event) => setUsername(event.target.value)}
+              />
 
-            <h2>Theme</h2>
-            <div className="button-container">
-              <button
-                className={
-                  theme === "default" ? "active" : "theme-button-default"
-                }
-                onClick={changeTheme}
-              >
-                Default
-              </button>
-              <button
-                className={theme === "dark" ? "active" : "theme-button-dark"}
-                onClick={changeTheme}
-              >
-                Dark
+              <h2>Theme</h2>
+              <div className="button-container">
+                <button
+                  id="1"
+                  className={
+                    theme === "default" ? "active" : "theme-button-default"
+                  }
+                  onClick={changeTheTheme}
+                >
+                  Default
+                </button>
+                <button
+                  id="2"
+                  className={theme === "dark" ? "active" : "theme-button-dark"}
+                  onClick={changeTheTheme}
+                >
+                  Dark
+                </button>
+              </div>
+              <button type="submit" className="modal-button">
+                Confirm
               </button>
             </div>
-            <button className="modal-button" onClick={renderModal}>
-              Confirm
-            </button>
-          </div>
+          </form>
         </div>
       ) : (
         <> </>

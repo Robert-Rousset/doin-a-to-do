@@ -14,18 +14,18 @@ body {
 }
 
 .full-title {
-  font-family: "Fruktur", cursive;
+  font-family: "Lobster", cursive;
   font-size: 50px;
   margin-top: -10px;
 }
 .short-title {
   display: none;
-  font-family: "Fruktur", cursive;
+  font-family: "Lobster", cursive;
   font-size: 50px;
   margin-top: -10px;
 }
 h1 {
-  font-family: "Fruktur", cursive;
+  font-family: "Lobster", cursive;
 }
 h2 {
   font-family: "Roboto", sans-serif;
@@ -35,13 +35,13 @@ nav {
   height: 40px;
   display: flex;
   justify-content: space-between;
-
   padding-top: 30px;
   padding-bottom: 30px;
   padding-left: 20px;
   padding-right: 20px;
   backdrop-filter: blur(50px);
 }
+
 nav > button {
   height: 50px;
   width: 90px;
@@ -50,12 +50,15 @@ nav > button {
   border-radius: 5px;
   border: none;
 }
-nav > button:hover {
+
+nav > button:hover,
+.sign-in-button:hover {
   transition: ease-in-out 0.8s;
   background-color: rgb(36, 87, 134);
   box-shadow: white 0px 0px 20px;
   text-shadow: 0px 0px 10px white;
 }
+
 .modal-button {
   position: absolute;
   bottom: -20px;
@@ -67,16 +70,19 @@ nav > button:hover {
   border-radius: 5px;
   border: none;
 }
+
 .modal-button:hover {
   transition: ease-in-out 0.8s;
   background-color: rgb(36, 87, 134);
   box-shadow: white 0px 0px 20px;
   text-shadow: 0px 0px 10px white;
 }
+
 main {
   display: flex;
   flex-direction: column;
 }
+
 .container {
   margin-right: 5%;
   margin-left: 5%;
@@ -93,14 +99,14 @@ main > section {
   border-bottom-left-radius: 50px;
   box-shadow: 0px 20px 30px rgba(146, 146, 146, 0.2);
   width: 50%;
-
   backdrop-filter: blur(50px);
 }
 
 label {
+  display: block;
+  text-align: center;
   font-family: "Roboto", sans-serif;
   margin-top: 20px;
-  padding-left: 50px;
   margin-bottom: 10px;
   font-size: 20px;
 }
@@ -110,7 +116,6 @@ section > form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   padding-bottom: 30px;
 }
 
@@ -165,7 +170,6 @@ section > form {
   text-shadow: white 0px 0px 10px;
 }
 main > aside {
-  height: 500px;
   margin-top: 0px;
   padding-top: 80px;
   margin: 0px 20px 0px 20px;
@@ -176,7 +180,8 @@ main > aside {
   backdrop-filter: blur(50px);
 }
 .aside-label {
-  margin-right: 50px;
+  display: block;
+  text-align: center;
 }
 aside > ol {
   width: 100%;
@@ -264,7 +269,6 @@ aside > ol {
   width: 60px;
   border-radius: 20px;
   margin: 0px 10px 0px 10px;
-  border: 3px white solid;
   box-shadow: rgba(75, 167, 48, 0.5) 0px 0px 20px;
   background-color: rgba(75, 167, 48, 0.5);
 }
@@ -301,7 +305,7 @@ li {
 }
 
 .sign-in-form {
-  height: 200px;
+  height: 180px;
   width: 300px;
   background-color: white;
   margin: auto;
@@ -311,7 +315,7 @@ li {
   padding-top: 50px;
 }
 
-.sign-in-form > button {
+.sign-in-button {
   position: relative;
   height: 50px;
   width: 100px;
@@ -336,6 +340,7 @@ li {
 .show {
   font-family: "Roboto", sans-serif;
   text-align: center;
+  font-size: 15.4px;
   color: red;
 }
 
@@ -356,6 +361,9 @@ li {
 }
 .complete-todo-button {
   background-image: url(./img/tick.png);
+}
+option {
+  text-align: center;
 }
 
 @media screen and (max-width: 1200px) {

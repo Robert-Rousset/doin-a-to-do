@@ -26,7 +26,7 @@ function SignIn() {
 
   return (
     <form className="sign-in-form" onSubmit={onSubmit}>
-      <h2>Username:</h2>
+      <label>Username:</label>
       <input
         placeholder="4+ characters"
         type="text"
@@ -38,7 +38,7 @@ function SignIn() {
         Please enter a username with 4 or more characters{" "}
       </p>
 
-      <button className="signIn-button" type="submit">
+      <button className="sign-in-button" type="submit">
         login
       </button>
     </form>

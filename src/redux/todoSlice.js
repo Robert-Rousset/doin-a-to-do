@@ -36,12 +36,6 @@ const userSlice = createSlice({
       };
       return changeName;
     },
-    deleteTodo: (state, action) => {
-      return {
-        ...state,
-        todos: state.todos.filter((todo) => todo.id !== action.payload.id),
-      };
-    },
     completeTodo: (state, action) => {
       return {
         ...state,
@@ -50,9 +44,21 @@ const userSlice = createSlice({
         ),
       };
     },
+    deleteTodo: (state, action) => {
+      return {
+        ...state,
+        todos: state.todos.filter((todo) => todo.id !== action.payload.id),
+      };
+    },
   },
 });
 
-export const { addTodo, signIn, changeTheme, completeTodo, deleteTodo } =
-  userSlice.actions;
+export const {
+  addTodo,
+  signIn,
+  changeTheme,
+  changeName,
+  completeTodo,
+  deleteTodo,
+} = userSlice.actions;
 export default userSlice.reducer;
