@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTodo } from "../../redux/todoSlice";
 import store from "../../redux/store";
 
 function AddTodo() {
+  const currentTheme = useSelector((state) => state.user.theme);
   const [todo, setTodo] = useState();
 
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ function AddTodo() {
   };
 
   return (
-    <section>
+    <section className={currentTheme}>
       <label>ADD TODO</label>
       <form onSubmit={onSubmit}>
         <div className="input-wrapper">

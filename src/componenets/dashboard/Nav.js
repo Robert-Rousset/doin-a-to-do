@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeName, changeTheme } from "../../redux/todoSlice";
 import store from "../../redux/store";
 
 function Nav() {
+  const currentTheme = useSelector((state) => state.user.theme);
   const theme = localStorage.getItem("theme");
 
   const [username, setUsername] = useState();
@@ -38,9 +39,11 @@ function Nav() {
 
   function onSubmit(event) {
     event.preventDefault();
-    if (username.length < 4) {
+    if (!username) {
+      renderModal();
+    } else if (username.length < 4) {
       alert("Username must be 4 or more characters");
-    } else {
+    } else if (username.length >= 4) {
       localStorage.setItem("username", username);
       dispatch(changeName({ name: username }));
       renderModal();
@@ -92,9 +95,11 @@ function Nav() {
       ) : (
         <> </>
       )}
-      <nav>
+      <nav className={currentTheme}>
         <button onClick={renderModal}>Settings</button>
-        <span className="full-title">Not Another Todo List</span>
+        <span className="full-title" id={currentTheme}>
+          Not Another Todo List
+        </span>
         <span className="short-title">Todo List</span>
         <button onClick={logout}>logout</button>
       </nav>

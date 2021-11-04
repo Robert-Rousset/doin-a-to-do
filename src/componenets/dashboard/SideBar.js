@@ -3,6 +3,7 @@ import { completeTodo, deleteTodo } from "../../redux/todoSlice";
 import store from "../../redux/store";
 
 function SideBar() {
+  const currentTheme = useSelector((state) => state.user.theme);
   const dispatch = useDispatch();
   const todos = useSelector((state) => state.user.todos);
   function completeTheTodo(id) {
@@ -13,7 +14,7 @@ function SideBar() {
   }
 
   return (
-    <aside>
+    <aside className={currentTheme}>
       <label htmlFor="select-status" className="aside-label">
         TODOS
       </label>
