@@ -36,12 +36,15 @@ function Nav() {
     }
   }
 
-  function resetButtons(themeName) {}
-
-  function changeUsername() {
-    localStorage.setItem("username", username);
-    dispatch(changeName({ name: username }));
-    renderModal();
+  function onSubmit(event) {
+    event.preventDefault();
+    if (username.length < 4) {
+      alert("Username must be 4 or more characters");
+    } else {
+      localStorage.setItem("username", username);
+      dispatch(changeName({ name: username }));
+      renderModal();
+    }
   }
 
   function stopPropagate(event) {
@@ -52,7 +55,7 @@ function Nav() {
     <>
       {showModal ? (
         <div className="modal-background" onClick={renderModal}>
-          <form onSubmit={changeUsername}>
+          <form onSubmit={onSubmit}>
             <div className="modal" onClick={stopPropagate}>
               <h1>Settings</h1>
               <h2>Username</h2>

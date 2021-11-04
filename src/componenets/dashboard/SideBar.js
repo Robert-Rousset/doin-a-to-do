@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { completeTodo, deleteTodo } from "../../redux/todoSlice";
+import store from "../../redux/store";
 
 function SideBar() {
   const dispatch = useDispatch();
@@ -10,6 +11,7 @@ function SideBar() {
   function deleteTheTodo(id) {
     dispatch(deleteTodo({ id: id }));
   }
+
   return (
     <aside>
       <label htmlFor="select-status" className="aside-label">
