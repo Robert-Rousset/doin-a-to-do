@@ -10,12 +10,13 @@ function App() {
       <Router>
         {signedIn ? (
           <>
-            <Route path="/" component={Dashboard} />
+            <Redirect to="/dashboard" />
+            <Route path="/dashboard" exact component={Dashboard} />
           </>
         ) : (
           <>
             <Redirect to="/signin" />{" "}
-            <Route path="/signin" component={SignIn} />
+            <Route path="/signin" exact component={SignIn} />
           </>
         )}
       </Router>
