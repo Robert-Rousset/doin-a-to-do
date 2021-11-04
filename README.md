@@ -2,7 +2,7 @@
 
 # The Todo
 
-A simple to do list app that lets users write down their tasks and mark them as complete!
+A simple todo list app that lets users write down their tasks and mark them as complete!
 
 ## Usage
 
