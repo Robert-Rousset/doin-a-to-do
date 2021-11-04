@@ -4,7 +4,7 @@ import Dashboard from "./componenets/Dashboard";
 import SignIn from "./componenets/SignIn";
 
 function App() {
-  const signedIn = localStorage.getItem("SignedIn");
+  const signedIn = localStorage.getItem("signedIn");
   return (
     <div className="background">
       <Router>

@@ -10,7 +10,7 @@ function Nav() {
   }
 
   function logout() {
-    localStorage.removeItem("SignedIn");
+    localStorage.removeItem("signedIn");
     window.location.reload();
   }
   return (

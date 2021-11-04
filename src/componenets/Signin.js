@@ -4,31 +4,42 @@ import { signIn } from "../redux/todoSlice";
 
 function SignIn() {
   const [username, setUsername] = useState();
+  const [errorMessage, setErrorMessage] = useState("hidden");
 
   const dispatch = useDispatch();
 
   function onSubmit(event) {
     event.preventDefault();
-    if (username.length > 4) {
+    if (!username || username.length < 4) {
+      setErrorMessage("show");
+      setTimeout(() => {
+        setErrorMessage("hidden");
+      }, 5000);
+    } else if (username.length >= 4) {
       dispatch(signIn({ name: username, signedIn: true }));
-      localStorage.setItem("SignedIn", true);
+      localStorage.setItem("signedIn", true);
+      localStorage.setItem("username", username);
       window.location.pathname = "/dashboard";
     }
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <div className="input-wrapper">
-        <label>name</label>
-        <input
-          placeholder="4+ characters"
-          type="text"
-          onChange={(event) => {
-            setUsername(event.target.value);
-          }}
-        />
-      </div>
-      <button type="submit">login</button>
+    <form className="sign-in-form" onSubmit={onSubmit}>
+      <h2>Username:</h2>
+      <input
+        placeholder="4+ characters"
+        type="text"
+        onChange={(event) => {
+          setUsername(event.target.value);
+        }}
+      />
+      <p className={errorMessage}>
+        Please enter a username with 4 or more characters{" "}
+      </p>
+
+      <button className="signIn-button" type="submit">
+        login
+      </button>
     </form>
   );
 }

@@ -247,6 +247,46 @@ li {
   padding: 10px;
 }
 
+.sign-in-form {
+  height: 200px;
+  width: 300px;
+  background-color: white;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 40px rgb(0, 0, 0, 0.2);
+  padding-top: 50px;
+}
+
+.sign-in-form > button {
+  position: relative;
+  height: 50px;
+  width: 100px;
+  background-color: rgb(34, 66, 95);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  top: 10px;
+  left: 100px;
+}
+.sign-in-form > h2 {
+  text-align: center;
+}
+
+.sign-in-form > input {
+  margin-left: 25px;
+  width: 80%;
+  height: 20px;
+}
+.hidden {
+  visibility: hidden;
+}
+.show {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  color: red;
+}
+
 @media screen and (max-width: 1200px) {
   .container {
     margin-left: 0px;
