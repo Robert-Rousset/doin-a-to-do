@@ -10,7 +10,7 @@ const userSlice = createSlice({
       const newTodo = {
         id: Date.now(),
         description: action.payload.description,
-        completed: true,
+        completed: false,
       };
       state.todos.push(newTodo);
     },
@@ -29,8 +29,30 @@ const userSlice = createSlice({
       };
       return changeTheme;
     },
+    changeName: (state, action) => {
+      const changeName = {
+        ...state,
+        name: action.payload.name,
+      };
+      return changeName;
+    },
+    deleteTodo: (state, action) => {
+      return {
+        ...state,
+        todos: state.todos.filter((todo) => todo.id !== action.payload.id),
+      };
+    },
+    completeTodo: (state, action) => {
+      return {
+        ...state,
+        todos: state.todos.map((todo) =>
+          todo.id === action.payload.id ? { ...todo, completed: true } : todo
+        ),
+      };
+    },
   },
 });
 
-export const { addTodo, signIn, changeTheme } = userSlice.actions;
+export const { addTodo, signIn, changeTheme, completeTodo, deleteTodo } =
+  userSlice.actions;
 export default userSlice.reducer;
